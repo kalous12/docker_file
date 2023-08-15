@@ -6,7 +6,16 @@
    
 ```bash
 git clone --depth=1 https://github.com/kalous12/docker_file.git
+docker build -t ubuntu22.04:root root/ubuntu-22.04
+docker run -t -i --privileged ubuntu22.04:root /bin/bash
 ```
+
+```bash
+git clone --depth=1 https://github.com/kalous12/docker_file.git
+docker build -t ubuntu20.04:root root/ubuntu-20.04
+docker run -t -i --privileged ubuntu20.04:root /bin/bash
+```
+
 
 ### 创建docker镜像
    
@@ -23,15 +32,6 @@ docker build -t ${name:tag} ${dir}
 docker build -t ubuntu22.04:root root/ubuntu-22.04
 #构建ubuntu20.04
 docker build -t ubuntu20.04:root root/ubuntu-20.04
-```
-
-- 构建使用普通用户的docker镜像
-
-```bash
-#构建ubuntu22.04
-docker build -t ubuntu22.04:user user/ubuntu-22.04
-#构建ubuntu20.04
-docker build -t ubuntu20.04:user user/ubuntu-20.04
 ```
 
 ### 创建docker容器
@@ -51,15 +51,6 @@ docker run -t -i --privileged ubuntu22.04:root /bin/bash
 docker run -t -i --privileged ubuntu20.04:root /bin/bash
 ```
 
-- 运行普通用户的docker容器
-
-```bash
-#构建ubuntu22.04
-docker run -t -i --privileged ubuntu22.04:user /bin/bash
-#构建ubuntu20.04
-docker run -t -i --privileged ubuntu20.04:user /bin/bash
-```
-
 ## docker的其他应用
 
 ```bash
@@ -77,6 +68,3 @@ docker image prune -f -a
 docker container prune -f
 
 ```
-
-
-<p align="right">write by ZeroK</p>
